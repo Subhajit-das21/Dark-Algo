@@ -22,7 +22,7 @@ export default function Navbar() {
     return (
         <header className="flex justify-between items-center px-8 mx-4 mt-4 h-[64px] rounded-2xl glass-strong z-50">
             <div className="text-2xl font-bold tracking-[3px] flex items-center gap-3">
-                <img src={logo} alt="DarkAlgo Logo" className="w-8 h-8 object-contain drop-shadow-[0_0_15px_rgba(0,229,255,0.6)] animate-pulse-slow" />
+                <img src={logo} alt="DarkAlgo Logo" className="w-12 h-12 -ml-2 object-contain drop-shadow-[0_0_15px_rgba(0,229,255,0.6)] animate-pulse-slow" />
                 <div className="flex items-center">
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">DARK</span>
                     <span className="neon-text font-black ml-1">ALGO</span>
