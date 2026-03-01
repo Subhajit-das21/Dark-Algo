@@ -545,8 +545,12 @@ export default function VisualizationCanvas() {
     }, [displayData, displayEdges, currentFrame, mode, displayActiveEdges, displayVisited, isDirected]);
 
     return (
-        <main className="flex-1 relative flex items-center justify-center m-4 ml-0 glass rounded-xl overflow-hidden p-8 shadow-2xl">
-            <div className="w-full h-full relative flex items-center justify-center overflow-hidden">
+        <main className="flex-1 relative flex items-center justify-center m-4 mb-4 ml-0 rounded-2xl overflow-hidden p-8 border border-white/5 bg-[#020306]/70 backdrop-blur-2xl shadow-[inset_0_0_100px_rgba(0,229,255,0.02),0_20px_50px_rgba(0,0,0,0.5)] z-10 transition-all duration-700">
+            {/* Grounding neon backdrop plate */}
+            <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[70%] h-[40%] bg-gradient-to-t from-[#00e5ff]/10 to-transparent blur-[50px] pointer-events-none"></div>
+            <div className="w-full h-full relative flex items-center justify-center overflow-hidden z-10">
+                {/* Subdued radial tracking grid */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)] pointer-events-none"></div>
 
                 {mode === 'array' && (
                     <div className="flex flex-wrap gap-4 items-end justify-center w-full max-w-5xl">
