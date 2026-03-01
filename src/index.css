@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #05060a;
+  --color-panel: rgba(15, 18, 32, 0.65);
+  --color-panel-border: rgba(255, 255, 255, 0.05);
+
+  --color-accent-green: #19ff9c;
+  --color-accent-blue: #00e5ff;
+  --color-accent-red: #ff3366;
+  --color-accent-purple: #b366ff;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8c9bb0;
+
+  --font-ui: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--color-dark);
+    color: var(--color-text-primary);
+    font-family: var(--font-ui);
+    overflow: hidden;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center center;
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--color-panel);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-panel-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-strong {
+    background: rgba(10, 12, 22, 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .neon-text {
+    color: var(--color-accent-green);
+    text-shadow: 0 0 8px rgba(25, 255, 156, 0.4);
+  }
+
+  .blue-text {
+    color: var(--color-accent-blue);
+  }
+
+  .white-text {
+    color: #fff;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 15px rgba(25, 255, 156, 0.2);
+  }
+}
