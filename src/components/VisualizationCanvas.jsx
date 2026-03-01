@@ -656,6 +656,27 @@ export default function VisualizationCanvas() {
                     </div>
                 )}
 
+                {(mode === 'bst' || mode === 'graph') && displayVisited.length > 0 && (
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center animate-[float_4s_ease-in-out_infinite]">
+                        <h4 className="text-[10px] uppercase tracking-[4px] text-[#00e5ff] font-bold mb-3 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]">Visited Path Sequence</h4>
+                        <div className="flex gap-1.5 p-3 px-4 bg-[#020306]/80 backdrop-blur-xl rounded-[24px] border border-white/10 shadow-[0_15px_30px_rgba(0,0,0,0.8),inset_0_0_15px_rgba(0,229,255,0.15)] flex-wrap justify-center max-w-3xl">
+                            {displayVisited.map((nodeId, idx) => {
+                                const nodeVal = displayData?.find(n => n.id === nodeId)?.value;
+                                return (
+                                    <div key={`visited-seq-${idx}`} className="flex items-center transition-all duration-300 animate-[fadeIn_0.5s_ease-out]">
+                                        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#00e5ff]/20 to-[#b366ff]/20 border border-[#00e5ff]/50 flex items-center justify-center shadow-[0_0_12px_rgba(0,229,255,0.3)] hover:scale-110 hover:border-[#19ff9c] hover:shadow-[0_0_15px_rgba(25,255,156,0.5)] transition-all cursor-default">
+                                            <span className="font-mono text-sm font-bold text-white">{nodeVal}</span>
+                                        </div>
+                                        {idx < displayVisited.length - 1 && (
+                                            <div className="w-4 h-[2px] bg-gradient-to-r from-[#00e5ff]/50 to-[#b366ff]/50 mx-1.5 rounded-full"></div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
+
             </div>
         </main>
     );

@@ -178,29 +178,29 @@ export function bstTraverse(nodes, root, type = 'inorder') {
         if (!current) return;
 
         ops++;
-        frames.push(createFrame(positionedNodes, 'compare', `Visiting Node ${current.value}`, [nodeId, ...visited], { root, current: nodeId, traversal: type }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
+        frames.push(createFrame(positionedNodes, 'compare', `Visiting Node ${current.value}`, [nodeId, ...visited], { root, current: nodeId, traversal: type, visited: [...visited] }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
 
         if (type === 'preorder') {
             visited.push(nodeId);
-            frames.push(createFrame(positionedNodes, 'target', `Processed Node ${current.value} (Pre-order)`, [...visited], { root, current: nodeId, traversal: type }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
+            frames.push(createFrame(positionedNodes, 'target', `Processed Node ${current.value} (Pre-order)`, [...visited], { root, current: nodeId, traversal: type, visited: [...visited] }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
         }
 
         traverse(current.left);
 
         if (type === 'inorder') {
             visited.push(nodeId);
-            frames.push(createFrame(positionedNodes, 'target', `Processed Node ${current.value} (In-order)`, [...visited], { root, current: nodeId, traversal: type }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
+            frames.push(createFrame(positionedNodes, 'target', `Processed Node ${current.value} (In-order)`, [...visited], { root, current: nodeId, traversal: type, visited: [...visited] }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
         }
 
         traverse(current.right);
 
         if (type === 'postorder') {
             visited.push(nodeId);
-            frames.push(createFrame(positionedNodes, 'target', `Processed Node ${current.value} (Post-order)`, [...visited], { root, current: nodeId, traversal: type }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
+            frames.push(createFrame(positionedNodes, 'target', `Processed Node ${current.value} (Post-order)`, [...visited], { root, current: nodeId, traversal: type, visited: [...visited] }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
         }
     }
 
     traverse(root);
-    frames.push(createFrame(positionedNodes, 'idle', `Completed ${type} traversal`, visited, { root, current: null, traversal: type }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
+    frames.push(createFrame(positionedNodes, 'idle', `Completed ${type} traversal`, visited, { root, current: null, traversal: type, visited: [...visited] }, { ...COMPLEXITY.TRAVERSE, operations: ops }));
     return frames;
 }
