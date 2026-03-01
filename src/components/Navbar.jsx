@@ -1,5 +1,6 @@
 import React from 'react';
 import { useExecutionStore } from '../store/useExecutionStore';
+import logo from '../assets/logo.png';
 
 export default function Navbar() {
     const { mode, setMode } = useExecutionStore();
@@ -20,10 +21,12 @@ export default function Navbar() {
 
     return (
         <header className="flex justify-between items-center px-8 mx-4 mt-4 h-[64px] rounded-2xl glass-strong z-50">
-            <div className="text-2xl font-bold tracking-[3px] flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-gradient-to-br from-[#19ff9c] to-[#00e5ff] shadow-[0_0_15px_rgba(25,255,156,0.4)] animate-pulse-slow"></div>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">DARK</span>
-                <span className="neon-text font-black">ALGO</span>
+            <div className="text-2xl font-bold tracking-[3px] flex items-center gap-3">
+                <img src={logo} alt="DarkAlgo Logo" className="w-8 h-8 object-contain drop-shadow-[0_0_15px_rgba(0,229,255,0.6)] animate-pulse-slow" />
+                <div className="flex items-center">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">DARK</span>
+                    <span className="neon-text font-black ml-1">ALGO</span>
+                </div>
             </div>
 
             <nav className="flex gap-2 bg-[#020306]/60 border border-white/5 p-1.5 rounded-[24px] overflow-x-auto custom-scrollbar max-w-[60vw] shadow-inner">
